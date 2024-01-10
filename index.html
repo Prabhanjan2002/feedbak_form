@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="curr2.css">
+    <title>Feedback Form</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="company_logo.jpg" width="130px" alt="Company Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="personal-info">
+            <h1>Personal Information</h1>
+            <form method="post" action="#">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="input-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="user_name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="user_phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="user_address" placeholder="Enter your address" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="user_email" placeholder="Enter your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="user_gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="prefer-not-say">Prefer Not to Say</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="department">Department:</label>
+                        <select id="department" name="user_department" required>
+                            <option value="dept1">Department1</option>
+                            <option value="dept2">Department2</option>
+                            <option value="dept3">Department3</option>
+                            <option value="dept4">Department4</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="feedback-form">
+            <h1>Your Feedback</h1>
+            <form method="post" action="#">
+                <fieldset>
+                    <legend>Your Feedback</legend>
+                    <div>
+                        <label for="sessionRating">How much are you satisfied with this session?</label>
+                        <input type="range" id="sessionRating" name="session_rating" min="1" max="5" step="1" value="3">
+                        <span id="sessionRatingValue">3</span>
+                    </div>
+                    <div>
+                        <label for="colleagueRating">Experience with your colleagues:</label>
+                        <input type="range" id="colleagueRating" name="colleague_rating" min="1" max="5" step="1" value="3">
+                        <span id="colleagueRatingValue">3</span>
+                    </div>
+                    <div>
+                        <label for="overallRating">Overall Experience:</label>
+                        <input type="range" id="overallRating" name="overall_rating" min="1" max="5" step="1" value="3">
+                        <span id="overallRatingValue">3</span>
+                    </div>
+                    <div>
+                        <label for="msg">Additional Comments:</label>
+                        <textarea name="user_msg" id="msg" cols="30" rows="10" placeholder="Enter your feedback"></textarea>
+                    </div>
+                </fieldset>
+
+                <div id="submitbutton">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>Email: info@company.com</p>
+            <p>Phone: +1 123 456 7890</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateRatingValue(inputId, displayId) {
+            const ratingInput = document.getElementById(inputId);
+            const ratingDisplay = document.getElementById(displayId);
+
+            ratingDisplay.textContent = ratingInput.value;
+        }
+
+        document.getElementById('sessionRating').addEventListener('input', function () {
+            updateRatingValue('sessionRating', 'sessionRatingValue');
+        });
+
+        document.getElementById('colleagueRating').addEventListener('input', function () {
+            updateRatingValue('colleagueRating', 'colleagueRatingValue');
+        });
+
+        document.getElementById('overallRating').addEventListener('input', function () {
+            updateRatingValue('overallRating', 'overallRatingValue');
+        });
+    </script>
+</body>
+</html>
